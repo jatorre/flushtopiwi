@@ -2,6 +2,7 @@ Piwi::Application.routes.draw do
 
   root :to => "home#index"
   
+  match "about" => "pools#about"
   match "save" => "pools#save"
   match ":uuid" => "pools#show"
   

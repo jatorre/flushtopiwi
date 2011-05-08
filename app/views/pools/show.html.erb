@@ -1,3 +1,6 @@
+<div id="top_bar">
+  <h3><b>Help us by</b> painting as much swimming pools as you can</h3>
+</div>
+
   <script type="text/javascript"> var geojson_data=<%= @geojson_data.html_safe %>;var bbox=<%= @bbox.to_json.html_safe %>;var uuid="<%= @uuid.html_safe %>";var area_id=<%= @area %>;</script>
-<div id="edit"><a href="javascript:createPolygon();"><%= image_tag("paint_brush.png", :size => "64x64", :alt => "paint brush") %></a></div>
 <div id="map"></div>

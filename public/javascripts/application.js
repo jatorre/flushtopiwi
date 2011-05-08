@@ -56,6 +56,9 @@ function saveMap() {
       alert("ha ocurrido un error");
     }
   });
+
+  createPolygon();
+
 }
 
 function polygonConstructor(coords,enable_drawing) {
@@ -100,5 +103,7 @@ $(document).ready(function(){
     //map.setUIToDefault();
     
     drawPolygons();
+    
+    createPolygon();
 
 });
