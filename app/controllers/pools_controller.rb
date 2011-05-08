@@ -29,7 +29,19 @@ class PoolsController < ApplicationController
     
   end
   
-  def new    
+  def new
+    
+#    preselected_areas =[234234,2343,222,56767,6212155,67852,985342]
+    
+#    id = preselected_areas[rand(10)]
+#    id = preselected_areas[rand(preselected_areas.length)]
+    
+#    sql ="select * from adm4 where areaid = '#{id.gsub(/\\/, '\&\&').gsub(/'/, "''")}'"
+#    @cartodb = CartoDB::Connection
+#    result = @cartodb.query(sql)
+
+    @area = 1
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => "feo" }
@@ -37,13 +49,8 @@ class PoolsController < ApplicationController
   end
 
   def save
-    debugger
-    sql= "INSERT INTO piwi(id) VALUES(1)"
-    @cartodb = CartoDB::Connection
-    result = @cartodb.query(sql)
     
-#    sql = "INSERT INTO piwi(uid,the_geom) VALUES (ST_GeomFromText('#{params[:wkt]}', '4326')"
-    sql = "UPDATE piwi SET the_geom=ST_GeomFromText('#{params[:wkt]}', '4326') WHERE id = 1"
+    sql = "INSERT INTO mapbrd(gadm4_id_4, the_geom) VALUES ('#{@area}', ST_GeomFromText('#{params[:wkt]}', '4326'))"
     puts sql
     @cartodb = CartoDB::Connection
     result = @cartodb.query(sql)

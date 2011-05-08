@@ -32,7 +32,7 @@ function saveMap() {
   
   $.ajax({
     type: "POST",
-    url: "/save",<
+    url: "/save",
     data: data_to_send,
     success: function(){
       $("#saveButton").val("save map");
