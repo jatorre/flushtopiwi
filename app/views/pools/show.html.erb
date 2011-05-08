@@ -1,0 +1,4 @@
+  <%= hidden_field_tag(:uuid, @uuid) %>
+  <script type="text/javascript"> var geojson_data=<%= @geojson_data.html_safe %>;</script>
+<div id="edit"><a href="javascript:void createPolygon()"><%= image_tag("paint_brush.png", :size => "64x64", :alt => "paint brush") %></a></div>
+<div id="map"></div>

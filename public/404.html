@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Piwi</title>
+  <%= stylesheet_link_tag "layout" %>
+  <%= csrf_meta_tag %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA0CKawhnQpsJmm-UNAx1vohRWImdktEN2SqC7V1Ko4HIEUqCxXhQOtGCYfIGdkSjeB8P0YC0k-ZYPkg&sensor=false" type="text/javascript"></script>
+  <%= javascript_include_tag "application.js" %>
+</head>
+
+<body>
+  <div id="info"> </div> 
+  <div id=""> 
+    <div id="pool_canvas" ></div> 
+    <div class="outer"> 
+      <div id="onpool"> 
+        <h2>OOooopppsss</h2> 
+        <h3 class="error">It seems that you had a problem loading the page. Try going <%= link_to 'back', '/' %></h3> 
+      </div> 
+      <div id="header"> 
+        <p><a href="http://twitter.com/mapbrdme">@mapbrdme</a> · brought to you by <a href="http://twitter.com/javomorales">@jav0m0rales</a> &ndash; <a href="http://vizzuality.com">Vizzuality</a> · 2011</p> 
+      </div> 
+    </div>
+  </div></body>
+</html>
