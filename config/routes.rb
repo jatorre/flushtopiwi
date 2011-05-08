@@ -2,11 +2,8 @@ Piwi::Application.routes.draw do
 
   root :to => "home#index"
   
-  match "new" => "pools#new"
-
   match "save" => "pools#save"
-
-  match "show" => "pools#show"
+  match ":uuid" => "maps#show"
   
   match '*a', :to => 'pools#render_404'
 

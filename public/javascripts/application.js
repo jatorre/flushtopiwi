@@ -73,18 +73,13 @@ function createPolygon() {
 
 
 $(document).ready(function(){
-
-  if (google.loader.ClientLocation) {
-    var userLatLng = new google.maps.LatLng(google.loader.ClientLocation.latitude, google.loader.ClientLocation.longitude);
+    
     map = new GMap2(document.getElementById("map"));
     map.setMapType(G_SATELLITE_MAP);
-    map.setCenter(new GLatLng(userLatLng.lat(), userLatLng.lng()), zoomFactor);
-    map.setUIToDefault();      
-  } else {
-    map = new GMap2(document.getElementById("map"));
-    map.setMapType(G_SATELLITE_MAP);
-    map.setCenter(new GLatLng(lat, lng), zoomFactor);
+    
+    bounds.extend(new GLatLng(data.ymin, data.xmin));
+    bounds.extend(new GLatLng(data.ymax, data.xmax));
+    map.setCenter(bounds.getCenter(), 16);  
     map.setUIToDefault();
-  }
 
 });

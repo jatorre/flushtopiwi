@@ -4,6 +4,8 @@ CartoDB::Connection = CartoDB::Client::Connection.new unless defined? CartoDB::C
 class PoolsController < ApplicationController
 
   def show
+    @uuid = params[:uuid]
+    
     #Check if the uuid is in cartodb or not
     sql ="select * from mapbrd where uuid = '#{@uuid.gsub(/\\/, '\&\&').gsub(/'/, "''")}'"
     
@@ -11,9 +13,18 @@ class PoolsController < ApplicationController
     result = @cartodb.query(sql)
     
     if result.rows.empty?
+      
+      @area = 15122
+      # @area = Random.new.rand(9220..17517)
+      sql = "SELECT id_4,ST_XMax(Box2D(the_geom)) as xmax,ST_YMax(Box2D(the_geom)) as ymax,
+      ST_XMin(Box2D(the_geom)) as xmin,ST_YMin(Box2D(the_geom)) as ymin FROM adm4 where id_4=#{@area}"
+      @cartodb = CartoDB::Connection
+      result = @cartodb.query(sql)
+
+
       sql= "INSERT INTO mapbrd(uuid) VALUES('#{@uuid.gsub(/\\/, '\&\&').gsub(/'/, "''")}')"
       @cartodb.query(sql)
-        @geojson_data ="{}"
+      @geojson_data ="{}"
     else
       if result.rows.first.the_geom.blank?
         @geojson_data ="{}"
@@ -25,20 +36,19 @@ class PoolsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => "feo" }
-    end
-    
+    end    
   end
   
   def new
     
-    # Random.new.rand(9220..17517)
+    @area = 15122
+    # @area = Random.new.rand(9220..17517)
     sql = "SELECT id_4,ST_XMax(Box2D(the_geom)) as xmax,ST_YMax(Box2D(the_geom)) as ymax,
-    ST_XMin(Box2D(the_geom)) as xmin,ST_YMin(Box2D(the_geom)) as ymin FROM adm4 where id_4=9220"
+    ST_XMin(Box2D(the_geom)) as xmin,ST_YMin(Box2D(the_geom)) as ymin FROM adm4 where id_4=#{@area}"
     @cartodb = CartoDB::Connection
     result = @cartodb.query(sql)
 
     @data = result.rows.first
-    @area = 9220
 
     respond_to do |format|
       format.html # index.html.erb
