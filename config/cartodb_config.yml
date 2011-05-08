@@ -3,7 +3,7 @@
 #############################
 production:
   host: 'https://api.cartodb.com'
-  api_key: '00582693b247d2ce465fc8cf3248c3d88837b60e'
+  api_key: '56226764b443764aa0bb5752a8e0720452a0b15e'
   table_name: 'piwi'
 
 #  auth_key: 'NJjm30LDCThhHteEuL8Zf1I2DhJ6qJHvIgpwAH91'
