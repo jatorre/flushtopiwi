@@ -4,7 +4,7 @@
 production:
   host: 'https://api.cartodb.com'
   api_key: '00582693b247d2ce465fc8cf3248c3d88837b60e'
-  table_name: 'mapbrd'
+  table_name: 'piwi'
 
 #  auth_key: 'NJjm30LDCThhHteEuL8Zf1I2DhJ6qJHvIgpwAH91'
 #  oauth_secret: 'zw3wb51WSONT4yUAY8KFcPbboISPavY7l6BwMDaO'
