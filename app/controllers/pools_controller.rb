@@ -31,16 +31,14 @@ class PoolsController < ApplicationController
   
   def new
     
-#    preselected_areas =[234234,2343,222,56767,6212155,67852,985342]
-    
-#    id = preselected_areas[rand(10)]
-#    id = preselected_areas[rand(preselected_areas.length)]
-    
-#    sql ="select * from adm4 where areaid = '#{id.gsub(/\\/, '\&\&').gsub(/'/, "''")}'"
-#    @cartodb = CartoDB::Connection
-#    result = @cartodb.query(sql)
+    # Random.new.rand(9220..17517)
+    sql = "SELECT id_4,ST_XMax(Box2D(the_geom)) as xmax,ST_YMax(Box2D(the_geom)) as ymax,
+    ST_XMin(Box2D(the_geom)) as xmin,ST_YMin(Box2D(the_geom)) as ymin FROM adm4 where id_4=9220"
+    @cartodb = CartoDB::Connection
+    result = @cartodb.query(sql)
 
-    @area = 1
+    @data = result.rows.first
+    @area = 9220
 
     respond_to do |format|
       format.html # index.html.erb

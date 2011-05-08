@@ -1,2 +1,4 @@
+<%= hidden_field_tag(:area, @area) %>
+<script type="text/javascript"> var data=<%= @data.html_safe %>;</script>
 <div id="edit"><a href="javascript:void createPolygon()"><%= image_tag("paint_brush.png", :size => "64x64", :alt => "paint brush") %></a></div>
 <div id="map"></div>
