@@ -3,7 +3,7 @@ Piwi::Application.routes.draw do
   root :to => "home#index"
   
   match "save" => "pools#save"
-  match ":uuid" => "maps#show"
+  match ":uuid" => "pools#show"
   
   match '*a', :to => 'pools#render_404'
 
