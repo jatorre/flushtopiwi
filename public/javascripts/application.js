@@ -28,7 +28,7 @@ function saveMap() {
   });
   
   var wkt = "MULTIPOLYGON((("+polygons_arr.join(")),((")+")))";  
-  var data_to_send = {wkt:wkt};
+  var data_to_send = {area:$("#area").val(),wkt:wkt};
   
   $.ajax({
     type: "POST",
