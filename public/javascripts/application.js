@@ -72,10 +72,8 @@ function polygonConstructor(coords,enable_drawing) {
   
   GEvent.addListener(polygon, "cancelline", function() {});
   GEvent.addListener(polygon, "endline", function() {
-    if (flag == 1) {
       saveMap();
-      flag = 0;
-    }
+      GEvent.removeListener(endline);
   });
   
   if (!enable_drawing) {
